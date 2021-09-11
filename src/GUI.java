@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -29,7 +30,7 @@ public class GUI implements ActionListener{
     JRadioButton radio2;
     
     int y = 0;
-    String password = "";
+    String password;
     String passwordText;
     
     public static final Color VERY_LIGHT_RED = new Color(255,102,102);
@@ -93,6 +94,7 @@ public class GUI implements ActionListener{
         frame.setBackground(VERY_LIGHT_RED);
         frame.setForeground(VERY_LIGHT_RED);
         frame.setIconImage(null);
+        frame.setSize(300, 200);
 		
 	}
 	
@@ -109,19 +111,19 @@ public class GUI implements ActionListener{
 		}else if(e.getSource()==radio2) {
 			y = 16;
 		}
-		char[] alphabet = {'#','-','*','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
-				'1','2','3','4','5','6','7','8','9','0','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+		
+		String[] characters = {"a","b","c","d","e","f","g","h","i","j","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","1","2","3","4","5","6","7","8","9","0",
+								"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","#","@",";","-","*","<",">"};
 		
 		Random random = new Random();
 		
+		ArrayList<String> input = new ArrayList<String>();
+		
 		if(e.getSource()==button) { 			
 		for(int i = 0; i < y; i++) {
-			int x = random.nextInt(63);
-			password = ((String.valueOf(alphabet[x])));
-			char[] ch = password.toCharArray();
-			System.out.println(ch);
-			passwordText = ch.toString();
-			System.out.println(passwordText);
+			int x = random.nextInt(68);
+			password = ((characters[x]));
+			input.add(password);
 			frame.setVisible(false);
 		}
 		frame = new JFrame();
@@ -129,9 +131,14 @@ public class GUI implements ActionListener{
 	    label = new JLabel("Here is your password");
 	    label.setBackground(BLACK);
 	    label.setForeground(VERY_LIGHT_RED);
-	    
-	    String finalPassword = passwordText.substring(3);    
-	    passwordtxt = new JTextField(finalPassword);
+	        
+	    String formattedPassword = input.toString()
+	    .replace(",","")
+	    .replace("[","")
+	    .replace("]","")
+	    .replace(" ","" )
+	    .trim();
+	    passwordtxt = new JTextField(formattedPassword);
 
 
 	    panel = new JPanel();
