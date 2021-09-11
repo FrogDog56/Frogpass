@@ -29,7 +29,8 @@ public class GUI implements ActionListener{
     JRadioButton radio2;
     
     int y = 0;
-    char password;
+    String password = "";
+    String passwordText;
     
     public static final Color VERY_LIGHT_RED = new Color(255,102,102);
     public static final Color WHITE = new Color(255,255,255);
@@ -63,8 +64,6 @@ public class GUI implements ActionListener{
         radio1.setForeground(VERY_LIGHT_RED);
         radio2.setBackground(BLACK);
         radio2.setForeground(VERY_LIGHT_RED);
-        
-        
    
         button = new JButton("Enter");
         button.setBackground(VERY_LIGHT_RED);
@@ -74,8 +73,6 @@ public class GUI implements ActionListener{
         label = new JLabel("Please select length of password here");
         label.setBackground(BLACK);
         label.setForeground(VERY_LIGHT_RED);
-        
-        passwordtxt = new JTextField(password);
 
         panel = new JPanel();
         panel.setBorder(BorderFactory.createEmptyBorder(30,30,10,30));
@@ -86,7 +83,6 @@ public class GUI implements ActionListener{
         panel.add(radio1);
         panel.add(radio2);
         panel.add(button);
-        panel.add(passwordtxt);
 
         frame.add(panel, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -98,9 +94,8 @@ public class GUI implements ActionListener{
         frame.setForeground(VERY_LIGHT_RED);
         frame.setIconImage(null);
 		
-	}	
+	}
 	
-
 	public static void main(String[] args) {
 		new GUI();
 	}
@@ -122,9 +117,39 @@ public class GUI implements ActionListener{
 		if(e.getSource()==button) { 			
 		for(int i = 0; i < y; i++) {
 			int x = random.nextInt(63);
-			password = (alphabet[x]);
-			System.out.print(password);
-	    	}
+			password = ((String.valueOf(alphabet[x])));
+			char[] ch = password.toCharArray();
+			System.out.println(ch);
+			passwordText = ch.toString();
+			System.out.println(passwordText);
+			frame.setVisible(false);
+		}
+		frame = new JFrame();
+
+	    label = new JLabel("Here is your password");
+	    label.setBackground(BLACK);
+	    label.setForeground(VERY_LIGHT_RED);
+	    
+	    String finalPassword = passwordText.substring(3);    
+	    passwordtxt = new JTextField(finalPassword);
+
+
+	    panel = new JPanel();
+	    panel.setBorder(BorderFactory.createEmptyBorder(30,30,10,30));
+	    panel.setLayout(new GridLayout(0, 1));
+	    panel.setBackground(BLACK);
+	    panel.add(label);
+	    panel.add(passwordtxt);
+
+	    frame.add(panel, BorderLayout.CENTER);
+	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    frame.setTitle("Password Generator");
+	    frame.pack();
+	    frame.setVisible(true);
+	    frame.setLocation(960 ,540);
+	    frame.setBackground(VERY_LIGHT_RED);
+	    frame.setForeground(VERY_LIGHT_RED);
+	    frame.setIconImage(null);
 		
 		}
 	}
