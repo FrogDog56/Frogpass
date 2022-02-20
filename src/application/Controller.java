@@ -1,10 +1,14 @@
 package application;
 
+import java.awt.datatransfer.Clipboard;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
 public class Controller {
+	
+	
 	
 	@FXML
 	TextField lengthTextField;
@@ -19,6 +23,10 @@ public class Controller {
 		p.setLength(length);
 		String password = p.generate();
 		passwordOutput.setText(password);
+	}
+	
+	public void copyToClipBoard(ActionEvent event) {
+		java.awt.Toolkit.getDefaultToolkit().getSystemClipboard().setContents(new java.awt.datatransfer.StringSelection(passwordOutput.getText()), null);
 	}
 
 }

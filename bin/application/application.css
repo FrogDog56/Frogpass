@@ -28,3 +28,8 @@
 	-fx-background-radius: 20;
 	-fx-font-size: 20px;
 }
+
+#copyBtn {
+	-fx-alignment: center;
+	-fx-background-color: #dfdfdf;
+}
