@@ -1,0 +1,35 @@
+.root {
+	-fx-background-color: #dfdfdf;
+	-fx-focus-color: transparent;
+	-fx-faint-focus-color: transparent;
+}
+
+#titleLabel {
+	-fx-font-size: 30px;
+	-fx-alignment: center; 
+}
+
+#startBtn {
+	-fx-alignment: center;
+	-fx-border-radius: 20;
+	-fx-background-color: #6b747c;
+	-fx-background-radius: 20;
+	-fx-font-size: 20px;
+}
+
+#appbarTitle {
+	-fx-font-size: 30px;
+}
+
+#generateBtn {
+	-fx-alignment: center;
+	-fx-border-radius: 20;
+	-fx-background-color: #6b747c;
+	-fx-background-radius: 20;
+	-fx-font-size: 20px;
+}
+
+#copyBtn {
+	-fx-alignment: center;
+	-fx-background-color: #dfdfdf;
+}
