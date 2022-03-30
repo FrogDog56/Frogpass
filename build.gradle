@@ -5,8 +5,8 @@ plugins {
     id 'org.beryx.jlink' version '2.24.1'
 }
 
-group 'me.frogdog.application'
-version '1.0.5'
+group 'me.frogdog'
+version '1.0'
 
 repositories {
     mavenCentral()
@@ -16,24 +16,25 @@ ext {
     junitVersion = '5.8.1'
 }
 
-sourceCompatibility = '16'
-targetCompatibility = '16'
+sourceCompatibility = '17'
+targetCompatibility = '17'
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
 application {
-    mainModule = 'me.frogdog.application'
-    mainClass = 'me.frogdog.application.Main'
+    mainModule = 'me.frogdog.frogpass'
+    mainClass = 'me.frogdog.frogpass.Main'
 }
 
 javafx {
-    version = '16'
+    version = '18-ea+6'
     modules = ['javafx.controls', 'javafx.fxml']
 }
 
 dependencies {
+    implementation('org.kordamp.ikonli:ikonli-javafx:12.2.0')
     implementation('org.kordamp.bootstrapfx:bootstrapfx-core:0.4.0')
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")

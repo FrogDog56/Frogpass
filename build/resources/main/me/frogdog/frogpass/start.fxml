@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.frogdog.frogpass.controllers.StartController">
+    <children>
+        <Label layoutX="171.0" layoutY="61.0" prefHeight="58.0" prefWidth="160.0" text="Frogpass">
+            <font>
+                <Font size="40.0" />
+            </font>
+            <textFill>
+                <LinearGradient endX="1.0" endY="1.0">
+                    <stops>
+                        <Stop>
+                            <color>
+                                <Color red="0.3961825966835022" green="0.7631579041481018" blue="0.18372319638729095" />
+                            </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                            <color>
+                                <Color red="0.40789473056793213" green="0.38145712018013" blue="0.38145712018013" />
+                            </color>
+                        </Stop>
+                    </stops>
+                </LinearGradient>
+            </textFill>
+        </Label>
+      <Button layoutX="204.0" layoutY="175.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="94.0" text="Login" />
+      <Button layoutX="204.0" layoutY="231.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="94.0" text="Register" />
+    </children>
+</AnchorPane>
