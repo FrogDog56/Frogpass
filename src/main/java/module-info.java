@@ -9,4 +9,7 @@ module me.frogdog.frogpass {
 
     opens me.frogdog.frogpass to javafx.fxml;
     exports me.frogdog.frogpass;
+
+    opens me.frogdog.frogpass.controllers to javafx.fxml;
+    exports me.frogdog.frogpass.controllers;
 }

@@ -31,7 +31,7 @@
                 </LinearGradient>
             </textFill>
         </Label>
-      <Button layoutX="204.0" layoutY="175.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="94.0" text="Login" />
-      <Button layoutX="204.0" layoutY="231.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="94.0" text="Register" />
+      <Button fx:id="login" layoutX="204.0" layoutY="175.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="94.0" text="Login" onAction="#login" />
+      <Button fx:id="register" layoutX="204.0" layoutY="231.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="94.0" text="Register"  />
     </children>
 </AnchorPane>
