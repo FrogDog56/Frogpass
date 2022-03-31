@@ -10,4 +10,8 @@ public class RegisterController {
     public void back(ActionEvent event) throws IOException {
         Controller.getInstance().switchRoot(event, "start.fxml");
     }
+
+    public void register(ActionEvent event) throws IOException {
+
+    }
 }

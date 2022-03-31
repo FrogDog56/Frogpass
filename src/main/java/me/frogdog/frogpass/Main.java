@@ -26,9 +26,11 @@ public class Main extends Application {
 
         this.file = new File(System.getProperty("user.home"), "frogpass");
 
-        if (!this.file.exists()) {
+        if(!this.file.exists()) {
             this.file.mkdir();
         }
+
+
     }
 
     @Override
@@ -49,7 +51,6 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-        new Main();
         launch();
     }
 

@@ -9,9 +9,10 @@ import java.awt.*;
 import java.io.IOException;
 
 public class LoginController {
-    public TextField username;
-    public TextField password;
-
+    @FXML
+    private TextField username;
+    @FXML
+    private TextField password;
 
     public void login(ActionEvent event) throws IOException {
         if (username.getText().equalsIgnoreCase("FrogDog")) {
