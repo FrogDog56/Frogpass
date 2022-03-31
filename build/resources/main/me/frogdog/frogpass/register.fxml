@@ -9,10 +9,10 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.frogdog.frogpass.controllers.RegisterController">
+<AnchorPane prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.frogdog.frogpass.controller.RegisterController">
     <children>
-        <TextField alignment="CENTER" layoutX="176.0" layoutY="145.0" promptText="Enter username" />
-        <TextField alignment="CENTER" layoutX="176.0" layoutY="205.0" promptText="Enter password" />
+        <TextField fx:id="username" alignment="CENTER" layoutX="176.0" layoutY="145.0" promptText="Enter username" />
+        <TextField fx:id="password" alignment="CENTER" layoutX="176.0" layoutY="205.0" promptText="Enter password" />
         <Label layoutX="223.0" layoutY="128.0" text="Username" />
         <Label layoutX="225.0" layoutY="188.0" text="Password" />
         <Label layoutX="171.0" layoutY="40.0" prefHeight="58.0" prefWidth="160.0" text="Frogpass">
@@ -36,7 +36,7 @@
                 </LinearGradient>
             </textFill>
         </Label>
-        <Button layoutX="212.0" layoutY="255.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Login" />
+        <Button layoutX="212.0" layoutY="255.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Register" onAction="#register" />
         <Button layoutX="227.0" layoutY="305.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="46.0" text="Back" onAction="#back" />
     </children>
 </AnchorPane>

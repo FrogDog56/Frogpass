@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import me.frogdog.frogpass.password.PasswordManager;
+import me.frogdog.frogpass.user.UserManager;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,6 +17,8 @@ public class Main extends Application {
     public static final String TITLE = "Frogpass";
     public static final String VERSION = "v1.0";
     public static Main INSTANCE = null;
+    private UserManager userManager;
+    private PasswordManager passwordManager;
     private final File file;
 
     private final Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
@@ -30,7 +34,8 @@ public class Main extends Application {
             this.file.mkdir();
         }
 
-
+        this.userManager = new UserManager();
+        this.passwordManager = new PasswordManager();
     }
 
     @Override
@@ -56,6 +61,14 @@ public class Main extends Application {
 
     public static Main getInstance() {
         return INSTANCE;
+    }
+
+    public PasswordManager getPasswordManager() {
+        return this.passwordManager;
+    }
+
+    public UserManager getUserManager() {
+        return this.userManager;
     }
 
     public File getFile() {
