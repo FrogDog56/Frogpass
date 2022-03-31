@@ -6,10 +6,20 @@ module me.frogdog.frogpass {
     requires org.kordamp.bootstrapfx.core;
     requires java.datatransfer;
     requires java.desktop;
+    requires com.google.gson;
 
     opens me.frogdog.frogpass to javafx.fxml;
     exports me.frogdog.frogpass;
 
-    opens me.frogdog.frogpass.controllers to javafx.fxml;
-    exports me.frogdog.frogpass.controllers;
+    opens me.frogdog.frogpass.controller to javafx.fxml;
+    exports me.frogdog.frogpass.controller;
+
+    opens me.frogdog.frogpass.password to javafx.fxml;
+    exports me.frogdog.frogpass.password;
+
+    opens me.frogdog.frogpass.user to javafx.fxml;
+    exports me.frogdog.frogpass.user;
+
+    opens me.frogdog.frogpass.data to javafx.fxml;
+    exports me.frogdog.frogpass.data;
 }

@@ -6,4 +6,4 @@ DIR="${0%/*}"
 
 
 
-"$DIR/java" $CDS_JVM_OPTS  -p "$DIR/../app" -m me.frogdog.frogpass/me.frogdog.frogpass.HelloApplication  "$@"
+"$DIR/java" $CDS_JVM_OPTS  -p "$DIR/../app" -m me.frogdog.frogpass/me.frogdog.frogpass.Main  "$@"

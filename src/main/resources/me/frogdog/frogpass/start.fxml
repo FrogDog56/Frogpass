@@ -8,7 +8,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.frogdog.frogpass.controllers.StartController">
+<AnchorPane prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.frogdog.frogpass.controller.StartController">
     <children>
         <Label layoutX="171.0" layoutY="60.0" prefHeight="58.0" prefWidth="160.0" text="Frogpass">
             <font>
