@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import me.frogdog.frogpass.data.Data;
+import me.frogdog.frogpass.data.DataManager;
 import me.frogdog.frogpass.password.PasswordManager;
 import me.frogdog.frogpass.user.UserManager;
 
@@ -19,6 +21,7 @@ public class Main extends Application {
     public static Main INSTANCE = null;
     private final UserManager userManager;
     private final PasswordManager passwordManager;
+    private final DataManager dataManager;
     private final File directory;
 
     private final Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
@@ -34,9 +37,19 @@ public class Main extends Application {
             this.directory.mkdir();
         }
 
+        this.dataManager = new DataManager();
         this.userManager = new UserManager();
-        this.userManager.load();
         this.passwordManager = new PasswordManager();
+
+        this.getDataManager().getRegistry().forEach(Data::load);
+
+        Runtime.getRuntime().addShutdownHook(new Thread("Shutdown Hook Thread") {
+
+            @Override
+            public void run() {
+                getDataManager().getRegistry().forEach(Data::save);
+            }
+        });
     }
 
     @Override
@@ -70,6 +83,10 @@ public class Main extends Application {
 
     public UserManager getUserManager() {
         return this.userManager;
+    }
+
+    public DataManager getDataManager() {
+        return this.dataManager;
     }
 
     public File getDirectory() {

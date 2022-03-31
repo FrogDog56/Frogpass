@@ -1,4 +1,23 @@
 package me.frogdog.frogpass.data;
 
-public class Data {
+import me.frogdog.frogpass.Main;
+
+import java.io.File;
+import java.io.IOException;
+
+public abstract class Data {
+    private File file;
+
+    public Data(String filename) {
+        this.file = new File(Main.getInstance().getDirectory(), filename);
+        Main.getInstance().getDataManager().register(this);
+    }
+
+    public File getFile() {
+        return this.file;
+    }
+
+    public abstract void load();
+
+    public abstract void save();
 }

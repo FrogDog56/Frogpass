@@ -19,4 +19,7 @@ module me.frogdog.frogpass {
 
     opens me.frogdog.frogpass.user to javafx.fxml;
     exports me.frogdog.frogpass.user;
+
+    opens me.frogdog.frogpass.data to javafx.fxml;
+    exports me.frogdog.frogpass.data;
 }

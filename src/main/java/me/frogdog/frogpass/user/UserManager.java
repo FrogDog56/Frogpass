@@ -1,27 +1,36 @@
 package me.frogdog.frogpass.user;
 
 import me.frogdog.frogpass.Main;
+import me.frogdog.frogpass.data.Data;
 import me.frogdog.frogpass.util.Registry;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class UserManager extends Registry<User> {
-    private final File file;
+public final class UserManager extends Registry<User> {
 
     public UserManager() {
         this.registry = new ArrayList<>();
-        this.file = new File(Main.getInstance().getDirectory(), "user.json");
-    }
 
-    public void load() {
-        try {
-            if (!this.file.exists()) {
-                this.file.createNewFile();
+        new Data("user.json") {
+
+            @Override
+            public void load() {
+                try {
+                    if (!this.getFile().exists()) {
+                        this.getFile().createNewFile();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+            @Override
+            public void save() {
+
+            }
+        };
+
     }
 }
