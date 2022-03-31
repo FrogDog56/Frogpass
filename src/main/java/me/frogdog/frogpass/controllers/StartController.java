@@ -15,13 +15,12 @@ import java.util.Objects;
 
 public class StartController {
 
-
     public void login(ActionEvent event) throws IOException {
         Controller.getInstance().switchRoot(event, "login.fxml");
     }
 
     public void register(ActionEvent event) throws IOException {
-
+        Controller.getInstance().switchRoot(event, "register.fxml");
     }
 
 }
