@@ -17,9 +17,9 @@ public class Main extends Application {
     public static final String TITLE = "Frogpass";
     public static final String VERSION = "v1.0";
     public static Main INSTANCE = null;
-    private UserManager userManager;
-    private PasswordManager passwordManager;
-    private final File file;
+    private final UserManager userManager;
+    private final PasswordManager passwordManager;
+    private final File directory;
 
     private final Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
     private final int centerX = (int) ((d.getWidth() - 500) / 2);
@@ -28,13 +28,14 @@ public class Main extends Application {
     public Main() {
         INSTANCE = this;
 
-        this.file = new File(System.getProperty("user.home"), "frogpass");
+        this.directory = new File(System.getProperty("user.home"), "frogpass");
 
-        if(!this.file.exists()) {
-            this.file.mkdir();
+        if (!this.directory.exists()) {
+            this.directory.mkdir();
         }
 
         this.userManager = new UserManager();
+        this.userManager.load();
         this.passwordManager = new PasswordManager();
     }
 
@@ -71,7 +72,7 @@ public class Main extends Application {
         return this.userManager;
     }
 
-    public File getFile() {
-        return this.file;
+    public File getDirectory() {
+        return this.directory;
     }
 }
