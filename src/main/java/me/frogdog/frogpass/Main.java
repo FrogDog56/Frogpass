@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.awt.*;
 import java.util.Objects;
@@ -13,10 +14,22 @@ import java.util.Objects;
 public class Main extends Application {
     public static final String TITLE = "Frogpass";
     public static final String VERSION = "v1.0";
+    public static Main INSTANCE = null;
+    private final File file;
 
     private final Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
     private final int centerX = (int) ((d.getWidth() - 500) / 2);
     private final int centerY = (int) ((d.getHeight() - 400) / 2);
+
+    public Main() {
+        INSTANCE = this;
+
+        this.file = new File(System.getProperty("user.home"), "frogpass");
+
+        if (!this.file.exists()) {
+            this.file.mkdir();
+        }
+    }
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -36,6 +49,15 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+        new Main();
         launch();
+    }
+
+    public static Main getInstance() {
+        return INSTANCE;
+    }
+
+    public File getFile() {
+        return this.file;
     }
 }
