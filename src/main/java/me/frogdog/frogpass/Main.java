@@ -57,7 +57,14 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("start.fxml")));
+            Parent root;
+
+            if (getUserManager().getRegistry().isEmpty()) {
+                root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("register.fxml")));
+            } else {
+                root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("start.fxml")));
+            }
+
             Scene scene = new Scene(root);
             stage.setMinWidth(500);
             stage.setMinHeight(400);

@@ -11,8 +11,4 @@ public class StartController {
         Controller.getInstance().switchRoot(event, "login.fxml");
     }
 
-    public void register(ActionEvent event) throws IOException {
-        Controller.getInstance().switchRoot(event, "register.fxml");
-    }
-
 }

@@ -37,6 +37,5 @@
             </textFill>
         </Label>
         <Button layoutX="212.0" layoutY="255.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Register" onAction="#register" />
-        <Button layoutX="227.0" layoutY="305.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="46.0" text="Back" onAction="#back" />
     </children>
 </AnchorPane>

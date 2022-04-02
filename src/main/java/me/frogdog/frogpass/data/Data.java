@@ -3,7 +3,6 @@ package me.frogdog.frogpass.data;
 import me.frogdog.frogpass.Main;
 
 import java.io.File;
-import java.io.IOException;
 
 public abstract class Data {
     private File file;

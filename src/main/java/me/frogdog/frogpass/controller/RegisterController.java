@@ -15,10 +15,6 @@ public class RegisterController {
     @FXML
     private TextField password;
 
-    public void back(ActionEvent event) throws IOException {
-        Controller.getInstance().switchRoot(event, "start.fxml");
-    }
-
     public void register(ActionEvent event) throws IOException {
         Main.getInstance().getUserManager().register(new User(username.getText(), password.getText()));
     }
