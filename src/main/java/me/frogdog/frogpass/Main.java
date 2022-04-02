@@ -48,6 +48,8 @@ public class Main extends Application {
             @Override
             public void run() {
                 getDataManager().getRegistry().forEach(Data::save);
+                getUserManager().getRegistry().clear();
+                getPasswordManager().getRegistry().clear();
             }
         });
     }
