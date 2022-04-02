@@ -28,10 +28,6 @@ public final class UserManager extends Registry<User> {
                     e.printStackTrace();
                 }
 
-                if (Main.getInstance().getUserManager().getRegistry().isEmpty()) {
-                    return;
-                }
-
                 try (FileReader reader = new FileReader(this.getFile())) {
                     root = new JsonParser().parse((Reader)reader);
                     JsonObject node = (JsonObject)root;
