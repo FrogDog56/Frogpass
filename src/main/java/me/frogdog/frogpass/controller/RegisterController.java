@@ -20,6 +20,6 @@ public class RegisterController {
     }
 
     public void register(ActionEvent event) throws IOException {
-        Main.getInstance().getUserManager().getRegistry().add(new User(username.getText(), password.getText()));
+        Main.getInstance().getUserManager().register(new User(username.getText(), password.getText()));
     }
 }

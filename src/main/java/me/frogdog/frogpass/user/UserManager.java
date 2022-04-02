@@ -1,6 +1,6 @@
 package me.frogdog.frogpass.user;
 
-import com.google.gson.stream.JsonWriter;
+import com.google.gson.*;
 import me.frogdog.frogpass.Main;
 import me.frogdog.frogpass.data.Data;
 import me.frogdog.frogpass.util.Registry;
@@ -17,13 +17,26 @@ public final class UserManager extends Registry<User> {
 
             @Override
             public void load() {
+                JsonElement root;
+
                 try {
                     if (!this.getFile().exists()) {
                         this.getFile().createNewFile();
+                        return;
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+
+                try (FileReader reader = new FileReader(this.getFile())) {
+                    root = new JsonParser().parse((Reader)reader);
+                    JsonObject node = (JsonObject)root;
+                    Main.getInstance().getUserManager().register(new User(node.get("username").getAsString(), node.get("password").getAsString()));
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
+
             }
 
             @Override
@@ -36,26 +49,14 @@ public final class UserManager extends Registry<User> {
                     e.printStackTrace();
                 }
 
-                try {
-                    JsonWriter writer = new JsonWriter(new FileWriter(this.getFile()));
-                    writer.beginObject();
-                    writer.name("data");
-                    writer.beginArray();
-                    for (User u : Main.getInstance().getUserManager().getRegistry()) {
-                        writer.beginObject();
-                        writer.name("username").value(u.getUsername());
-                        writer.name("password").value(u.getPassword());
-                        writer.endObject();
-                    }
-                    writer.endArray();
-                    writer.endObject();
-                    writer.close();
+                try (FileWriter writer = new FileWriter(this.getFile())) {
+                    User user = Main.getInstance().getUserManager().getRegistry().get(0);
+                    writer.write(new GsonBuilder().setPrettyPrinting().create().toJson(user));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
             }
         };
-
     }
+
 }
