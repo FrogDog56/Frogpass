@@ -78,6 +78,10 @@ public class Main extends Application {
         }
     }
 
+    public void close() {
+        System.exit(0);
+    }
+
     public static void main(String[] args) {
         launch();
     }

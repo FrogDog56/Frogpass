@@ -17,5 +17,6 @@ public class RegisterController {
 
     public void register(ActionEvent event) throws IOException {
         Main.getInstance().getUserManager().register(new User(username.getText(), password.getText()));
+        Controller.getInstance().switchRoot(event, "home.fxml");
     }
 }
