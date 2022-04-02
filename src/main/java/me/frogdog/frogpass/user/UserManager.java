@@ -49,6 +49,10 @@ public final class UserManager extends Registry<User> {
                     e.printStackTrace();
                 }
 
+                if (Main.getInstance().getUserManager().getRegistry().isEmpty()) {
+                    return;
+                }
+
                 try (FileWriter writer = new FileWriter(this.getFile())) {
                     User user = Main.getInstance().getUserManager().getRegistry().get(0);
                     writer.write(new GsonBuilder().setPrettyPrinting().create().toJson(user));
