@@ -4,12 +4,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import me.frogdog.frogpass.Main;
+import me.frogdog.frogpass.password.Password;
 
 import java.net.URL;
 import java.util.*;
 
 public class HomeController implements Initializable {
-    String[] passwords = {"hecks"};
+    ArrayList<String> passwords = new ArrayList<>();
 
     @FXML
     private ListView<String> list;
@@ -19,11 +21,16 @@ public class HomeController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        load();
+        Main.getInstance().getPasswordManager().register(new Password("hecker"));
+        reload();
     }
 
-    public void load() {
+    public void reload() {
+        Main.getInstance().getPasswordManager().getRegistry().forEach(p -> {
+            passwords.add(p.getPassword());
+        });
+
         list.getItems().addAll(passwords);
-        user.setText("Logged in as FrogDog");
+        user.setText("Logged in as " + Main.getInstance().getUserManager().getRegistry().get(0).getUsername());
     }
 }
