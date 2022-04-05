@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import me.frogdog.frogpass.data.Data;
 import me.frogdog.frogpass.data.DataManager;
+import me.frogdog.frogpass.password.Password;
 import me.frogdog.frogpass.password.PasswordManager;
 import me.frogdog.frogpass.user.UserManager;
 
